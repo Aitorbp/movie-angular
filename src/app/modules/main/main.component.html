@@ -1,0 +1,29 @@
+
+<div class="container text-center" style="margin-top: 6rem;">
+    <div class="text-center" >
+
+        <div class="input-group mb-3">
+            <input type="text" id="search" name="search"  #search class="form-control" placeholder="Search the movie" aria-label="Search the movie" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="searchMovie(search.value)" type="button">Search</button>
+            </div>
+        </div> 
+
+        <div style="display:flex; flex-wrap: wrap-reverse;">
+            <div class="p-2"  *ngFor="let movie of movies.results  | paginate: { itemsPerPage: 4, currentPage: page }">
+                <app-card-movie
+                image="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}"  
+                title="{{movie.title}}"
+                description=" {{movie.overview}}" 
+                [userActive] ="userActive"
+                (click)="goToDetailMovie(movie.id)" > 
+                </app-card-movie> 
+            </div>
+        </div>
+            
+ 
+        
+    </div > 
+    <pagination-controls class="text-center" (pageChange)= "page = $event" previousLabel="Previous" nextLabel="Next">
+    </pagination-controls>
+</div>

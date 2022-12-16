@@ -1,0 +1,38 @@
+<div class="container" style="width: 20%; margin-top: 5rem; ">
+    <form>
+    
+        <div class="form-outline mb-4">
+          <input id="user" name="user"  #user type="email" id="form2Example1" class="form-control" />
+          <label class="form-label" for="form2Example1">User</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input id="pass" name="pass"  #pass type="password" id="form2Example2" class="form-control" />
+          <label class="form-label" for="form2Example2">Password</label>
+        </div>
+        
+         <!-- Submit button -->
+         <div *ngIf="!showRegister">
+            <button  (click)="loginUser(pass.value)" type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+         </div>
+      <!-- Submit button -->
+        <div *ngIf="showRegister">
+            <button (click)="registerUser(user.value ,pass.value, true, '')" type="button" class="btn btn-primary btn-block mb-4">Register</button>
+
+        </div>      
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4"> 
+      
+          <div class="col">
+            <!-- Simple link -->
+            <button class="btn btn-primary btn-block mb-4" type="button" (click)="goToMainNoLogUser()">Go into without login</button>
+          </div>
+        </div>
+      
+     
+        <!-- Register buttons -->
+        <div class="text-center">
+          <p>Not a member? <a  (click)="showingRegister()">Register</a></p>
+           
+        </div>
+      </form>
+</div>
